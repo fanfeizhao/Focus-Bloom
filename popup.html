@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Bloom</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✦</div>
+        <div>
+          <h1>Focus Bloom</h1>
+          <p>Work deeply. Rest fully.</p>
+        </div>
+      </div>
+      <button id="powerButton" class="power" type="button" aria-label="Turn timer on or off">
+        <span class="power-dot"></span>
+        <span id="powerLabel">Off</span>
+      </button>
+    </header>
+
+    <section class="timer-card">
+      <div class="status-row">
+        <span id="phasePill" class="phase-pill">Ready</span>
+        <span id="sessionCount">0 sessions</span>
+      </div>
+
+      <div id="countdown" class="countdown">25:00</div>
+      <p id="timerMessage" class="timer-message">Choose your timing, then turn it on.</p>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="setting">
+        <div class="setting-heading">
+          <div>
+            <label for="focusRange">Focus time</label>
+            <small>Time between breaks</small>
+          </div>
+          <output id="focusOutput" for="focusRange">25 min</output>
+        </div>
+        <input id="focusRange" type="range" min="10" max="3600" step="10" value="1500">
+        <div class="time-entry">
+          <label class="sr-only" for="focusMinutes">Focus minutes</label>
+          <input id="focusMinutes" class="number-input" type="number" min="0" max="60" step="1" value="25">
+          <span>min</span>
+          <label class="sr-only" for="focusSecondsInput">Focus seconds</label>
+          <input id="focusSecondsInput" class="number-input" type="number" min="0" max="59" step="1" value="0">
+          <span>sec</span>
+        </div>
+        <div class="range-labels"><span>10 sec</span><span>1 hour</span></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="setting">
+        <div class="setting-heading">
+          <div>
+            <label for="breakRange">Break screen</label>
+            <small>How long the screen stays locked</small>
+          </div>
+          <output id="breakOutput" for="breakRange">5 min</output>
+        </div>
+        <input id="breakRange" type="range" min="10" max="1800" step="10" value="300">
+        <div class="time-entry">
+          <label class="sr-only" for="breakMinutes">Break minutes</label>
+          <input id="breakMinutes" class="number-input" type="number" min="0" max="30" step="1" value="5">
+          <span>min</span>
+          <label class="sr-only" for="breakSecondsInput">Break seconds</label>
+          <input id="breakSecondsInput" class="number-input" type="number" min="0" max="59" step="1" value="0">
+          <span>sec</span>
+        </div>
+        <div class="range-labels"><span>10 sec</span><span>30 min</span></div>
+      </div>
+    </section>
+
+    <p class="reset-note">Turning the timer off immediately resets the current cycle.</p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

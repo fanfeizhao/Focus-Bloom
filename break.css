@@ -1,0 +1,209 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at 50% 110%, rgba(68, 224, 166, 0.16), transparent 42%),
+    linear-gradient(145deg, #12172a 0%, #080a12 64%, #0a0f18 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.28;
+  animation: float 11s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  width: 38vw;
+  height: 38vw;
+  left: -15vw;
+  top: -18vw;
+  background: #865dff;
+}
+
+.orb-two {
+  width: 34vw;
+  height: 34vw;
+  right: -14vw;
+  bottom: -15vw;
+  background: #42dfa4;
+  animation-delay: -4s;
+}
+
+.orb-three {
+  width: 18vw;
+  height: 18vw;
+  right: 14vw;
+  top: 8vw;
+  background: #4c8dff;
+  opacity: 0.12;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  to { transform: translate3d(3vw, 2vw, 0) scale(1.08); }
+}
+
+.flower {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  margin-bottom: 24px;
+  animation: rotate 18s linear infinite;
+}
+
+.flower span {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 8px 50%;
+  background: linear-gradient(135deg, #8df4c7, #a98dff);
+  box-shadow: 0 0 32px rgba(119, 237, 192, 0.25);
+}
+
+.flower span:nth-child(1) { left: 19px; top: 0; transform: rotate(45deg); }
+.flower span:nth-child(2) { right: 0; top: 19px; transform: rotate(135deg); }
+.flower span:nth-child(3) { left: 19px; bottom: 0; transform: rotate(225deg); }
+.flower span:nth-child(4) { left: 0; top: 19px; transform: rotate(315deg); }
+
+.flower-center {
+  position: absolute;
+  inset: 25px;
+  z-index: 2;
+  border-radius: 50%;
+  background: #f8fff9;
+}
+
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #7ceab7;
+  font-size: clamp(11px, 1vw, 15px);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+h1 {
+  max-width: 1000px;
+  margin: 0;
+  font-size: clamp(50px, 7vw, 112px);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  font-weight: 720;
+}
+
+h1 em {
+  color: transparent;
+  font-style: normal;
+  background: linear-gradient(90deg, #7feabd, #ae93ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.instruction {
+  max-width: 650px;
+  margin: 26px 0 30px;
+  color: #aab3c5;
+  font-size: clamp(16px, 1.4vw, 23px);
+  line-height: 1.55;
+}
+
+.countdown-shell {
+  min-width: 260px;
+  padding: 20px 38px 18px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  background: rgba(255,255,255,0.055);
+  box-shadow: 0 24px 90px rgba(0,0,0,0.28);
+  backdrop-filter: blur(22px);
+}
+
+.break-countdown {
+  font-size: clamp(42px, 4.6vw, 72px);
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  margin-top: 4px;
+  color: #79849a;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.breath {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  color: #b8c1d2;
+  font-size: 14px;
+}
+
+.breath-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #79e8b6;
+  box-shadow: 0 0 24px rgba(121,232,182,0.6);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.7); opacity: 0.55; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+.footnote {
+  position: fixed;
+  bottom: 24px;
+  margin: 0;
+  color: #606a7d;
+  font-size: 12px;
+}
+
+@media (max-height: 700px) {
+  .flower { width: 54px; height: 54px; transform: scale(.75); margin-bottom: 12px; }
+  .instruction { margin: 16px 0 18px; }
+  .countdown-shell { padding: 12px 30px; }
+  .breath { margin-top: 16px; }
+}
